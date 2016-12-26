@@ -1,0 +1,18 @@
+{% extends 'bucket/base.html' %}
+
+{% block content %}
+	<hr>
+	<div class="container">
+		<a href="{% url 'item_new' %}" class="top-menu">Add new <span class="glyphicon glyphicon-plus"></span></a>
+	</div>
+	<hr>
+	<ul class="list-group">
+	{% for item in items %}
+	        <li class="list-group-item text-right">
+	            <span class="pull-left clearfix"><b>{{ item.title }}</b>: {{ item.price }}$</span>
+	            <a class="btn btn-default" href="{% url 'item_edit' id=item.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+	            <a class="btn btn-default" href="{% url 'item_delete' id=item.id %}"><span class="glyphicon glyphicon-remove"></span></a>
+	        </li>
+	{% endfor %}
+	</ul>
+{% endblock content %}

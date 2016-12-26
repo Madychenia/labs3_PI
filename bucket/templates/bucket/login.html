@@ -1,0 +1,11 @@
+{% extends 'bucket/base.html' %}
+
+{% block content %}
+    <h1>Login:</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Login</button>
+    </form>
+    <br>
+	<a href="{% url 'registration' %}" class="top-menu"><button class="btn btn-default">Registration</button></a>
+{% endblock %}
